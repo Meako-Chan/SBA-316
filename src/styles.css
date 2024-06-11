@@ -35,7 +35,10 @@ li{
 }
 
 #submit{
+    font-size: 12px;
     margin-left: 15px;
+    padding: 5px;
+    
 }
 
 nav a{

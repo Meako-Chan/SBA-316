@@ -56,7 +56,7 @@ let choice_2 = document.getElementById("choice-2").nextElementSibling;
 let choice_3 = document.getElementById("choice-3").nextElementSibling;
 let choice_4 = document.getElementById("choice-4").nextElementSibling;
 let choices = document.getElementsByClassName("answer");
-// console.log(choices)
+console.log(choices)
 
 console.log(choice_1);
 console.log(choice_2);
@@ -72,3 +72,47 @@ choice_1.textContent = quiz[current_question].choice1;
 choice_2.textContent = quiz[current_question].choice2;
 choice_3.textContent = quiz[current_question].choice3;
 choice_4.textContent = quiz[current_question].choice4;
+
+for(let i = 0; i < choices.length; i++){
+    choices[i].addEventListener("click", handleChoice);
+}
+
+submit.addEventListener("click", handleSubmit);
+
+function handleSubmit(e){
+    e.preventDefault();
+    let submitted_ans = document.querySelector('input[class="answer"]:checked')
+    console.log(submitted_ans);
+    if(submitted_ans === null){
+        alert("Please select an answer!");
+    }else{
+        if(submitted_ans.nextElementSibling.textContent === quiz[current_question].answer){
+            score++;
+            console.log(score);
+        }
+        current_question++;
+        if(current_question < quiz.length){
+            question.textContent = (current_question+1) + "." + quiz[current_question].question;
+            choice_1.textContent = quiz[current_question].choice1;
+            choice_2.textContent = quiz[current_question].choice2;
+            choice_3.textContent = quiz[current_question].choice3;
+            choice_4.textContent = quiz[current_question].choice4;
+        }else{
+            alert("Congratulations! You scored " + score + " out of " + quiz.length + ".");
+        }
+    }
+}
+
+
+//Used to handle if user attempts to pick multiple buttons
+function handleChoice(e){
+    e.preventDefault;
+    console.log(e.target);
+    for(let i = 0; i < choices.length; i++){
+        if(choices[i].id !== e.target.id){
+            choices[i].checked = false;
+        }
+    }
+
+}
+    
