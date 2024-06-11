@@ -4,10 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SBA 316: The Document Object Model</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="src/styles.css">
   </head>
   <body>
-        <h1>Welcome to My Website!</h1>  
+    <div class="quiz-container">
+        <h1 id ="quiz-title">My Dragon Ball Z Quiz!</h1>  
+        <h2 class="question"> Question </h2>
+        <ul>
+          <li>
+            <input type="radio" class="answer" id="choice-1">
+          <label for="choice-1" id="text-1">Option A</label>
+          </li>
+          
+          <li>
+            <input type="radio" class="answer" id="choice-2">
+            <label for="choice-2" id="text-2">Option B</label>
+          </li>
+          
+          <li>
+            <input type="radio" class="answer" id="choice-3">
+            <label for="choice-3" id="text-3">Option C</label>
+          </li>
+          
+          <li>
+            <input type="radio" class="answer" id="choice-4">
+            <label for="choice-4" id="text-4">Option D</label>
+          </li>
+          
+        </ul>
+        <button id="submit"><h2>Submit</h2></button>
+        
+    </div>
+        
 
 	<script src="index.js"></script>
   </body>
