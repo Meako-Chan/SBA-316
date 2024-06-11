@@ -43,7 +43,7 @@ image2.classList.add('hover-gif');
 fragment.appendChild(image2);
 
 let paragraph2 = document.createElement('p');
-paragraph2.textContent = "MouseOver the picture above to see some gameplay from Dragon Ball: Sparking Zero's trailer! Also click on the image above the title to see the original game Budokai Tenkaichi 3 released in 2005!";
+paragraph2.textContent = "Hover over the picture above to see some gameplay from Dragon Ball: Sparking Zero's trailer! Also click on the image above the title to see the original game Budokai Tenkaichi 3 released in 2005!";
 paragraph2.style.paddingTop = "15px";
 fragment.appendChild(paragraph2);
 
@@ -54,6 +54,9 @@ image1.addEventListener("click", () =>{
 
 image2.addEventListener("mouseover", () =>{
     image2.src = './src/images/gif1.gif';
+})
+image2.addEventListener("mouseout", () =>{
+   image2.src = './src/images/gif1.jfif';
 })
 
 
