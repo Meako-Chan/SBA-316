@@ -1,7 +1,25 @@
 
+let menuLinks = [
+    {text: "Home", href: "./home"},
+    {text: "Quiz", href: "./index.html"},
+]
+
+
+let topMenuEl = document.getElementById("top-menu");
+topMenuEl.style.height = "100%";
+topMenuEl.style.backgroundColor = "green";
+topMenuEl.classList.add("flex-around");
+
+menuLinks.forEach(function createLink(link){
+    let anchor = document.createElement("a");
+    anchor.setAttribute("href", link.href);
+    anchor.textContent = link.text;
+    topMenuEl.appendChild(anchor);
+});
+
+
 let quiz = [
     {
-        number: 1,
         question: "What color does a Saiyan's hair become when turning into a Super Saiyan?",
         choice1: "red",
         choice2: "blue",
@@ -11,7 +29,6 @@ let quiz = [
     }
     ,
     {
-        number: 2,
         question: "Who was the first character to achieve Super Saiyan 2?",
         choice1: "Goku",
         choice2: "Gohan",
@@ -21,7 +38,6 @@ let quiz = [
     }
     ,
     {
-        number: 3,
         question: "Who is the current Guardian of Earth at the end of Dragon Ball Z?",
         choice1: "Kami",
         choice2: "Piccolo",
@@ -35,10 +51,10 @@ let quiz = [
 let question = document.getElementById("question");
 console.log(question.innerHTML);
 
-let choice_1 = document.getElementById("text-1");
-let choice_2 = document.getElementById("text-2");
-let choice_3 = document.getElementById("text-3");
-let choice_4 = document.getElementById("text-4");
+let choice_1 = document.getElementById("choice-1").nextElementSibling;
+let choice_2 = document.getElementById("choice-2").nextElementSibling;
+let choice_3 = document.getElementById("choice-3").nextElementSibling;
+let choice_4 = document.getElementById("choice-4").nextElementSibling;
 let choices = document.getElementsByClassName("answer");
 // console.log(choices)
 
@@ -51,7 +67,7 @@ let submit = document.getElementById("submit")
 let current_question = 0;
 let score = 0;
 
-question.textContent = (current_question + 1) + "." + quiz[current_question].question;
+question.textContent = (current_question+1) + "." + quiz[current_question].question;
 choice_1.textContent = quiz[current_question].choice1;
 choice_2.textContent = quiz[current_question].choice2;
 choice_3.textContent = quiz[current_question].choice3;

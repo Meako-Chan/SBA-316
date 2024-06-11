@@ -37,3 +37,15 @@ li{
 #submit{
     margin-left: 15px;
 }
+
+nav a{
+    line-height: 3rem;
+    padding: 0 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+}
+
+#top-menu a:hover {
+    color: lightgreen;
+  }
