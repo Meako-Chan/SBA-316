@@ -1,15 +1,17 @@
 
+//Array to hold inner text and href for nav bar 
 let menuLinks = [
     {text: "Home", href: "./home.html"},
     {text: "Quiz", href: "./index.html"},
 ]
 
-
+//Create top menu and set attributes
 let topMenuEl = document.getElementById("top-menu");
 topMenuEl.style.height = "100%";
 topMenuEl.style.backgroundColor = "green";
 topMenuEl.classList.add("flex-around");
 
+//Creates anchors and appends to document from menu links
 menuLinks.forEach(function createLink(link){
     let anchor = document.createElement("a");
     anchor.setAttribute("href", link.href);
@@ -17,6 +19,7 @@ menuLinks.forEach(function createLink(link){
     topMenuEl.appendChild(anchor);
 });
 
+//Question Bank
 
 let quiz = [
     {
@@ -110,50 +113,53 @@ let quiz = [
     }
 ]
 
-//Note: Remember to use DocumentFragment
+// Holds Question teat and choices
 let question = document.getElementById("question");
-console.log(question.innerHTML);
+// console.log(question.innerHTML);
 
 let choice_1 = document.getElementById("choice-1").nextElementSibling;
 let choice_2 = document.getElementById("choice-2").nextElementSibling;
 let choice_3 = document.getElementById("choice-3").nextElementSibling;
 let choice_4 = document.getElementById("choice-4").nextElementSibling;
 let choices = document.getElementsByClassName("answer");
-console.log(choices)
+// console.log(choices)
 
-console.log(choice_1);
-console.log(choice_2);
-console.log(choice_3);
-console.log(choice_4);
+// console.log(choice_1);
+// console.log(choice_2);
+// console.log(choice_3);
+// console.log(choice_4);
 
+//Variables  for submit button, coutner for current question and score
 let submit = document.getElementById("submit")
 let current_question = 0;
 let score = 0;
 
+//Updates question and choices with current question in question bank
 question.textContent = (current_question+1) + "." + quiz[current_question].question;
 choice_1.textContent = quiz[current_question].choice1;
 choice_2.textContent = quiz[current_question].choice2;
 choice_3.textContent = quiz[current_question].choice3;
 choice_4.textContent = quiz[current_question].choice4;
 
+//Creates event listener for each radio button to uncheck others when clicked
 for(let i = 0; i < choices.length; i++){
     choices[i].addEventListener("click", handleChoice);
 }
 
+//Updates questions and updates score when clicking submit
 submit.addEventListener("click", handleSubmit);
 
 function handleSubmit(e){
     e.preventDefault();
     let submitted_ans = document.querySelector('input[class="answer"]:checked')
-    console.log(submitted_ans);
     if(submitted_ans === null){
         alert("Please select an answer!");
     }else{
         if(submitted_ans.nextElementSibling.textContent === quiz[current_question].answer){
             score++;
-            console.log(score);
         }
         current_question++;
+        //Ensures no choice is checked when question is updated
         if(current_question < quiz.length){
             for(let i = 0; i < choices.length; i++){
                 choices[i].checked = false;
@@ -173,7 +179,7 @@ function handleSubmit(e){
 //Used to handle if user attempts to pick multiple buttons
 function handleChoice(e){
     e.preventDefault;
-    console.log(e.target);
+    // console.log(e.target);
     for(let i = 0; i < choices.length; i++){
         if(choices[i].id !== e.target.id){
             choices[i].checked = false;
