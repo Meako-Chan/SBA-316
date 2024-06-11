@@ -17,6 +17,18 @@ body{
     border-radius: 10px;
     padding: 30px;
     margin: 100px auto;
+    align-self: center;
+
+}
+
+.about-container{
+    background: #fff;
+    width: 90%;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 100px auto;
+    align-self: center;
+    
 
 }
 
@@ -52,3 +64,11 @@ nav a{
 #top-menu a:hover {
     color: lightgreen;
   }
+
+  .img{
+    display:block
+  }
+
+  /* .hover-gif:hover{
+    content: url('images/gif1.gif')
+  } */

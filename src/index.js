@@ -1,6 +1,6 @@
 
 let menuLinks = [
-    {text: "Home", href: "./home"},
+    {text: "Home", href: "./home.html"},
     {text: "Quiz", href: "./index.html"},
 ]
 
