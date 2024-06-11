@@ -20,6 +20,69 @@ menuLinks.forEach(function createLink(link){
 
 let quiz = [
     {
+        question:"What is Goku's Saiyan Name?",
+        choice1: "Vegeta",
+        choice2: "Broly",
+        choice3: "Kakarot",
+        choice4: "Raditz",
+        answer: "Kakarot",
+    }
+    ,
+    {
+        question:"What is Goku's signature technique?",
+        choice1: "Kamehameha",
+        choice2: "Spriit Bomb",
+        choice3: "Dragon Fist",
+        choice4: "Instant Transmission",
+        answer: "Kamehameha",
+    }
+    ,
+    {
+        question:"Which technique was used to cut off Frieza's Tail?",
+        choice1: "Special Beam Cannon",
+        choice2: "Destructo Disk",
+        choice3: "Spirit Bomb",
+        choice4: "Tri-Beam",
+        answer: "Destructo Disk",
+    }
+    ,
+    {
+        question:"How many Dragon Balls are there?",
+        choice1: "3",
+        choice2: "5",
+        choice3: "7",
+        choice4: "10",
+        answer: "7",
+    }
+    ,
+    {
+        question:"Who created the Solar Flare Technique?",
+        choice1: "Tien",
+        choice2: "Krillin",
+        choice3: "Yamcha",
+        choice4: "Piccolo",
+        answer: "Tien",
+    }
+    ,
+    {
+        question:"Which of these is not one of Vegeta's techniques?",
+        choice1: "Galick Gun",
+        choice2: "Final Flash",
+        choice3: "Big Bang Attack",
+        choice4: "Death Beam",
+        answer: "Death Beam",
+    }
+    ,
+    {
+        question:"How many Super Saiyans exist in the Dragon Ball Z series(excluding movies)?",
+        choice1: "4",
+        choice2: "5",
+        choice3: "6",
+        choice4: "7",
+        answer: "6",
+    }
+    ,
+    {
         question: "What color does a Saiyan's hair become when turning into a Super Saiyan?",
         choice1: "red",
         choice2: "blue",
@@ -92,6 +155,9 @@ function handleSubmit(e){
         }
         current_question++;
         if(current_question < quiz.length){
+            for(let i = 0; i < choices.length; i++){
+                choices[i].checked = false;
+            }
             question.textContent = (current_question+1) + "." + quiz[current_question].question;
             choice_1.textContent = quiz[current_question].choice1;
             choice_2.textContent = quiz[current_question].choice2;
