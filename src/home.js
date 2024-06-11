@@ -48,8 +48,16 @@ paragraph2.style.paddingTop = "15px";
 fragment.appendChild(paragraph2);
 
 image1.addEventListener("click", () =>{
+    const currentSrc = image1.getAttribute('src');
+    console.log(currentSrc);
+    if(currentSrc === './src/images/budokai.webp'){
+        image1.src = './src/images/Sparking_Zero.jpg';
+        return;
+    }
     image1.style.height = "250px";
     image1.src = './src/images/budokai.webp';
+
+    
 })
 
 image2.addEventListener("mouseover", () =>{
